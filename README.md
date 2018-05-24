@@ -73,6 +73,6 @@ for(Object o : set){
 
 
 ### HashSet为什么不能添加重复元素？
-<iframe id="embed_dom" name="embed_dom" frameborder="0" style="display:block;width:525px; height:245px;" src="https://www.processon.com/embed/5b068e01e4b0da6de33e0e6d"> </iframe>
+<iframe id="embed_dom" name="embed_dom" frameborder="0" style="display:block;width:100%; height:545px;" src="https://www.processon.com/embed/5b068e01e4b0da6de33e0e6d"> </iframe>
 
 
