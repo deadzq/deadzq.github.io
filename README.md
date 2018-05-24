@@ -22,7 +22,7 @@ while(it.hasNext()){
 }
 
 </pre>
-###泛型
+#泛型
 参数化类型(让集合中只能添加某一种类型的元素)
 定义集合的时候可以添加泛型,添加的元素必须和泛型指定的类型相匹配.
 <pre>
@@ -35,29 +35,29 @@ Set<Students> c1 = new HashSet<Students>();
 只要是集合,都可以加泛型.
 集合加完泛型之后,for each也可以换成泛型指定的.
 
-###Map集合
+#Map集合
 通过键值对的方式存储数据.
 键不能重复， 根据键key可以找到值value
 
-###方法:
+#方法:
 
 
-```
+
 put(Object key,Object value)  //就是往map集合中存入键值对
-```
 
-```
+
+
 remove(Object key)  //根据key,删除对应的键值对(包括键与值)
-```
 
-```
+
+
 size()  //map集合的长度 就是 集合中键值对的个数
-```
 
-```
+
+
 get(Object key)   //根据键获取值,如果集合中不存在这个键,那么获取 null
-```
-###怎么遍历Map集合？
+
+#怎么遍历Map集合？
 - Map集合不存在自己的遍历方式,Map集合要想遍历需要借助Set集合。
 - get(Object key)可以通过键获取到值,如果咱们可以获取到所有的键,所有的值都可以通过get方法获取到。
 - keySet() 可以将map集合中所有的key拿出来,组成一个新的Set集合,然后将该Set集合返回.
@@ -69,7 +69,6 @@ Set set = map.keySet(); //set中存储了map集合中所有的key值
 for(Object o : set){
     System.out.println("value: "+map.get(o));
 }
-
 </pre>
 
 
