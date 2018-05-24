@@ -3,7 +3,7 @@
 - [匿名内部类?](https://www.processon.com/view/link/5b025103e4b0da6de331d848)
 - [哥德巴赫猜想判定质数数值?](https://www.processon.com/view/link/5b01287de4b06a40445ecd00)
 - [接口实现类实例对象调用关系?](https://www.processon.com/view/link/5afe9de3e4b0ceccca8644d7)
-- [接口,数组,方法调用关系](https://www.processon.com/view/link/5afd3b1ee4b0595cc890063b)
+- [接口,数组对象,方法调用关系?](https://www.processon.com/view/link/5afd3b1ee4b0595cc890063b)
 
 
 
