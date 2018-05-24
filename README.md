@@ -1,8 +1,10 @@
 ### 欢迎你来到我的博客~  [工具网站](https://deadzq.github.io/tools.html)
-### [HashSet为什么不能添加重复元素？](https://www.processon.com/view/link/5b068e01e4b05f5d6b6adac5)
-- 昨天将慕课大学的java进阶的题做了一下，很有收获！明天用HashMap容器重做一下。
-- 今天将Set,Map接口及其实现类掌握一下。
-- 集合类型Collection
+- [HashSet为什么不能添加重复元素？](https://www.processon.com/view/link/5b068e01e4b05f5d6b6adac5)
+
+
+昨天将慕课大学的java进阶的题做了一下，很有收获！明天用HashMap容器重做一下。
+今天将Set,Map接口及其实现类掌握一下。
+集合类型Collection
 iterator迭代器
 Iterator it = list.iterator();//此时it就是集合或数组list的迭代器对象.
 Set接口:
