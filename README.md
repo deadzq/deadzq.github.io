@@ -2,4 +2,4 @@
 
 - 昨天将慕课大学的java进阶的题做了一下，很有收获！明天用HashMap容器重做一下。
 - 今天将Set,Map接口及其实现类掌握一下。
-
+ ![variable](/img/variable.jpg)
