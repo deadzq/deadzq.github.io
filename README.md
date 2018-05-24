@@ -1,6 +1,17 @@
 ### 欢迎你来到我的博客~  [工具网站](https://deadzq.github.io/tools.html)
 - [HashSet为什么不能添加重复元素？](https://www.processon.com/view/link/5b068e01e4b05f5d6b6adac5)
 - [匿名内部类?](https://www.processon.com/view/link/5b025103e4b0da6de331d848)
+- [哥德巴赫猜想判定质数数值](https://www.processon.com/view/link/5b01287de4b06a40445ecd00)
+
+
+
+
+
+
+
+
+
+
 
 昨天将慕课大学的java进阶的题做了一下，很有收获！明天用HashMap容器重做一下。
 今天将Set,Map接口及其实现类掌握一下。
