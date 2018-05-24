@@ -72,6 +72,7 @@ for(Object o : set){
 </pre>
 
 
-### [HashSet为什么不能添加重复元素？](https://www.processon.com/view/link/5b068e01e4b05f5d6b6adac5)
+ 
+###[HashSet为什么不能添加重复元素？](https://www.processon.com/view/link/5b068e01e4b05f5d6b6adac5)
 
 
