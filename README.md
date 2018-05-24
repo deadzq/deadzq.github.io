@@ -72,7 +72,6 @@ for(Object o : set){
 </pre>
 
 
-### HashSet为什么不能添加重复元素？
-<iframe id="embed_dom" name="embed_dom" frameborder="0" style="display:block;width:100%; height:545px;" src="https://www.processon.com/embed/5b068e01e4b0da6de33e0e6d"> </iframe>
+### [HashSet为什么不能添加重复元素？](https://www.processon.com/view/link/5b068e01e4b05f5d6b6adac5)
 
 
