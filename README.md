@@ -7,3 +7,4 @@
 - [MOOC_判断两个处于矩阵数组中城市的距离?](https://www.processon.com/view/link/5b028e52e4b05615d25162a5)
 - [2进制快速记忆法之java小实现](https://www.processon.com/view/link/5b06d700e4b05615d25d1069)
 - [什么是异常?如何捕获异常?未检查异常和已检查异常的区别?](https://www.processon.com/view/link/5b0b8f0be4b0fccf723ba252)
+- [什么是Session对象?](https://www.processon.com/view/link/5a3b64ade4b07c8d894161e1)
