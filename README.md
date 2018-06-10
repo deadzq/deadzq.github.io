@@ -22,6 +22,7 @@
 - [学生成绩的数据结构?](https://www.processon.com/view/link/5b172f85e4b06350d4535b9d)
 - [有继承关系对象生成顺序?](https://www.processon.com/view/link/5b19fe9ae4b07596cf45c741)
 - [如何使用字节字符桥将一首五言绝句按行反写?](https://www.processon.com/view/link/5b1a3880e4b00490ac8f5f40)
+- [递归求两个数的最大公约数(欧几里得算法)?](https://www.processon.com/view/link/5b1c844ae4b02e4b26ff5b72)
 
 
 ---
