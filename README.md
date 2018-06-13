@@ -24,6 +24,8 @@
 - [如何使用字节字符桥将一首五言绝句按行反写?](https://www.processon.com/view/link/5b1a3880e4b00490ac8f5f40)
 - [递归求两个数的最大公约数(欧几里得算法)?](https://www.processon.com/view/link/5b1c844ae4b02e4b26ff5b72)
 - [什么是冒泡排序和选择排序?](https://www.processon.com/view/link/5b1de65ae4b07596cf49e709)
+- [使用一个数组将该数组向某方向移动K位?](https://www.processon.com/view/link/5b1f335de4b02e4b27030e37)
+
 
 ---
 
