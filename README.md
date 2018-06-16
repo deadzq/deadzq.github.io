@@ -26,7 +26,7 @@
 - [递归求两个数的最大公约数(欧几里得算法)?](https://www.processon.com/view/link/5b1c844ae4b02e4b26ff5b72)
 - [什么是冒泡排序和选择排序?](https://www.processon.com/view/link/5b1de65ae4b07596cf49e709)
 - [使用一个数组将该数组向某方向移动K位?](https://www.processon.com/view/link/5b1f335de4b02e4b27030e37)
-
+- [怎也去建立一个图书管理系统?](https://www.processon.com/view/link/5b237183e4b06d15ca93e52a)
 
 ---
 
@@ -38,3 +38,6 @@
 - [java线程示意图](https://www.processon.com/view/link/5b0e22afe4b009aef59037b7)
 - [算法,数据结构与程序的关系](https://www.processon.com/view/link/5ad1e6eee4b0b74a6dd6955e)
 - [什么是二分查找?](https://www.processon.com/view/link/5b2308e4e4b02539617ea55c)
+
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/3.js?i=0i68f3ntvth&amp;b=0&amp;s=40&amp;m=2&amp;cl=ffffff&amp;co=010020&amp;cd=aa0000&amp;v0=60&amp;v1=60&amp;r=1" async="async"></script>
+
