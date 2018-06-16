@@ -47,9 +47,9 @@
 <br>
 <br>
 <center>
-<p>
+
 <script type="text/javascript" src="//ra.revolvermaps.com/0/0/3.js?i=0i68f3ntvth&amp;b=0&amp;s=40&amp;m=2&amp;cl=ffffff&amp;co=010020&amp;cd=aa0000&amp;v0=60&amp;v1=60&amp;r=1" async="async"></script>
-</p>
+
 </center>
 <br>
 <br>
