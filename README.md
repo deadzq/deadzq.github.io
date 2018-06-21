@@ -27,6 +27,7 @@
 - [什么是冒泡排序和选择排序?](https://www.processon.com/view/link/5b1de65ae4b07596cf49e709)
 - [使用一个数组将该数组向某方向移动K位?](https://www.processon.com/view/link/5b1f335de4b02e4b27030e37)
 - [怎也去建立一个图书管理系统?](https://www.processon.com/view/link/5b24b04ae4b06d15ca94aedb)
+- [怎样快速求一个递减/递增的累加和是否等于一个万亿级的long数?](https://www.processon.com/view/link/5b214776e4b03f9d25208e66)
 
 ---
 
