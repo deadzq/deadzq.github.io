@@ -20,7 +20,6 @@
 - [学生成绩的数据结构?](http://on-img.com/chart_image/5b172f85e4b001a14d2d4696.png)
 - [有继承关系对象生成顺序?](http://on-img.com/chart_image/5b19fe9ae4b068c2521b2221.png)
 - [如何使用字节字符桥将一首五言绝句按行反写?](http://on-img.com/chart_image/5b1a3880e4b03f9d2516a01c.png)
-- [简单的Dao层使用?](http://on-img.com/chart_image/5b33876be4b05e9395b72d8b.png)
 
 
 ---
