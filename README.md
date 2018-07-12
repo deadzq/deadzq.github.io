@@ -54,6 +54,7 @@
 - [2进制快速记忆法之java小实现](http://on-img.com/chart_image/5b06d700e4b0da6de33ed6f2.png)
 - [怎样快速求一个递减/递增的累加和是否等于一个万亿级的long数?](http://on-img.com/chart_image/5b214776e4b06350d46349b1.png)
 - [一眼看明白二分查找](http://on-img.com/chart_image/5b2308e3e4b0c383b0793d0a.png)
+- [Java+JS如何实现五子棋游戏](http://on-img.com/chart_image/5b46e559e4b054aa54b32899.png)
 
 
 <br>
