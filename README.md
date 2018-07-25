@@ -19,6 +19,7 @@
 - [IO流怎样复制一个文本文件?](http://on-img.com/chart_image/5b14b4bae4b06350d44f1036.png)
 - [学生成绩的数据结构?](http://on-img.com/chart_image/5b172f85e4b001a14d2d4696.png)
 - [有继承关系对象生成顺序?](http://on-img.com/chart_image/5b19fe9ae4b068c2521b2221.png)
+- [有继承的初始化顺序(包括静态成员及代码块构造函数)](http://on-img.com/chart_image/5b036b52e4b0ceccca8e28e5.png)
 - [如何使用字节字符桥将一首五言绝句按行反写?](http://on-img.com/chart_image/5b1a3880e4b03f9d2516a01c.png)
 
 
