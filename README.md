@@ -69,6 +69,31 @@
 - [一眼看明白二分查找](http://on-img.com/chart_image/5b2308e3e4b0c383b0793d0a.png)
 - [Java+JS如何实现五子棋游戏](http://on-img.com/chart_image/5b46e559e4b054aa54b32899.png)
 
+---
+
+##### CW(codewars.com)
+
+JAVA
+- [java_特利波纳契](http://on-img.com/chart_image/5b228547e4b06df80aae123c.png)
+- [java_2题_体积方块_未解](http://on-img.com/chart_image/5b214776e4b06350d46349b1.png)
+- [java_3题_基础排序](http://on-img.com/chart_image/5b21b60fe4b001a14d3d437c.png)
+- [java_4题_倒置字符串](http://on-img.com/chart_image/5b21dfe5e4b0a838a0930789.png)
+- [java_5题_基本数据使用](http://on-img.com/chart_image/5b2209fae4b0818a2a22f8f4.png)
+- [java_6题_重复数据清点](http://on-img.com/chart_image/5b22144de4b0eb6ba41c4bd1.png)
+- [java_7题_字符串方法](http://on-img.com/chart_image/5b232d63e4b0200a8e8fe64c.png)
+- [java_8题_基础数字运算](http://on-img.com/chart_image/5b2361bde4b0c383b07a1662.png)
+- [java_9题_矩形计算_未解](http://on-img.com/chart_image/5b347cf0e4b06bb4a421fcbb.png)
+- [java_10题_完美力量数字_未解](http://on-img.com/chart_image/5b3f9016e4b0a6efd4753eb1.png)
+SQL
+- [sql_1题_哈利波特魔法帽](http://on-img.com/chart_image/5b34f43ae4b0d3d5d0ade156.png)
+- [sql_2题_HAVING用法](http://on-img.com/chart_image/5b3cb58ce4b063f71f574ab9.png)
+- [sql_3题_TRUNC用法](http://on-img.com/chart_image/5b3cb9cbe4b0d97b024fdc39.png)
+- [sql_4题_未解](http://on-img.com/chart_image/5b3cbcfde4b045a5a3147c9a.png)
+- [sql_5题_COALESCE用法](http://on-img.com/chart_image/5b3ec51de4b07b0230f99edf.png)
+JAVASCRIPT
+- [js_1题_三目运算符](http://on-img.com/chart_image/5b5829fee4b025cf49267530.png)
+- [js_2题_质数](http://on-img.com/chart_image/5b58397ce4b0f8477d93a911.png)
+- [js_3题_filter?](http://on-img.com/chart_image/5b5868d2e4b0f8477d9414ea.png)
 
 <br>
 <br>
