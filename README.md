@@ -33,15 +33,26 @@
 - [什么是Session对象?](http://on-img.com/chart_image/5a3b64ace4b0f622f2aaf110.png)
 - [java线程示意图](http://on-img.com/chart_image/5b0e22afe4b055e64b126198.png)
 - [算法,数据结构与程序的关系](http://on-img.com/chart_image/5ad1e6eee4b02dfcf9a361f9.png)
-
+- [五子棋思维图示test1](http://on-img.com/chart_image/5b4b49fee4b07df3b43bac0d.png)
+- [五子棋思维图示test2](http://on-img.com/chart_image/5b4bf90ce4b0ade3e27d5772.png)
+- [魔偶书城图书管理系统test1](http://on-img.com/chart_image/5b24b04ae4b06d15ca94aeda.png)
+- [MariaSQLManager_test1](http://on-img.com/chart_image/5b4d3f7fe4b07b023109f4ba.png)
+- [订餐系统test1](http://on-img.com/chart_image/5b3f4095e4b07df3b42ec1d7.png)
+- [订餐系统test2](http://on-img.com/chart_image/5b4e8f7ae4b040415adfd51d.png)
+- [YKMIMI.COM实战](http://on-img.com/chart_image/5b4f5070e4b025cf491c13e6.png)
 
 ---
+
 
 ##### 项目构建UML练习
 
 
-- [魔偶书城图书管理系统](http://on-img.com/chart_image/5b24b04ae4b06d15ca94aeda.png)
-- [订单系统](http://on-img.com/chart_image/5b56d334e4b08d36228cb3ce.png)
+- [订单系统](http://on-img.com/chart_image/5b52e6e6e4b0edb750e3f1f4.png)
+- [IP查询机](http://on-img.com/chart_image/5b4d6c5ae4b0ade3e27f9b49.png)
+- [UML书例子1](http://on-img.com/chart_image/5b445353e4b00b08ad14b830.png)
+- [五子棋Web版本](http://on-img.com/chart_image/5b4955e3e4b054aa54b66086.png)
+- [一个完整的Web项目包结构](http://on-img.com/chart_image/5b4ab54ce4b07b02310777d8.png)
+
 
 ---
 
