@@ -84,6 +84,9 @@
 - [java_8题_基础数字运算](http://on-img.com/chart_image/5b2361bde4b0c383b07a1662.png)
 - [java_9题_矩形计算_未解](http://on-img.com/chart_image/5b347cf0e4b06bb4a421fcbb.png)
 - [java_10题_完美力量数字_未解](http://on-img.com/chart_image/5b3f9016e4b0a6efd4753eb1.png)
+- [java_11题_求集合之和接近的素数](http://on-img.com/chart_image/5b5d2f71e4b08d3622942a77.png)
+
+
 <br>
 
 - SQL
