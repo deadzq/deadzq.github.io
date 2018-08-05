@@ -85,6 +85,7 @@
 - [java_9题_矩形计算_未解](http://on-img.com/chart_image/5b347cf0e4b06bb4a421fcbb.png)
 - [java_10题_完美力量数字_未解](http://on-img.com/chart_image/5b3f9016e4b0a6efd4753eb1.png)
 - [java_11题_求集合之和接近的素数](http://on-img.com/chart_image/5b5d2f71e4b08d3622942a77.png)
+- [5kyu题1,约瑟夫战死排列](http://on-img.com/chart_image/5b673a91e4b0edb750fa78eb.png)
 
 <br>
 
