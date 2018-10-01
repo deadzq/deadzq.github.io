@@ -7,6 +7,7 @@
 
 ##### 题解
 
+
 - [飞镖计分问题?](http://on-img.com/chart_image/5b7e43ffe4b015327abcfb6f.png)
 - [HashSet为什么不能添加重复元素？](http://on-img.com/chart_image/5b068e01e4b0da6de33e0e70.png)
 - [匿名内部类?](http://on-img.com/chart_image/5b025103e4b0ceccca8ba15d.png)
@@ -86,6 +87,8 @@
 - [java_10题_完美力量数字_未解](http://on-img.com/chart_image/5b3f9016e4b0a6efd4753eb1.png)
 - [java_11题_求集合之和接近的素数](http://on-img.com/chart_image/5b5d2f71e4b08d3622942a77.png)
 - [5kyu题1,约瑟夫战死排列](http://on-img.com/chart_image/5b673a91e4b0edb750fa78eb.png)
+- [5kyu题2,公共分母返回](http://on-img.com/chart_image/5b766f91e4b067df5a0e1095.png)
+- [5kyu题3,飞镖计分 未解](http://on-img.com/chart_image/5b7e43ffe4b015327abcfb6f.png)
 
 <br>
 
