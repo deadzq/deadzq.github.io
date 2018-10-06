@@ -46,7 +46,7 @@
 
 ##### 项目构建UML练习
 
-
+- [会员购卡](http://on-img.com/chart_image/5bb74ec4e4b0534c9bf4f914.png)
 - [订单系统](http://on-img.com/chart_image/5b52e6e6e4b0edb750e3f1f4.png)
 - [IP查询机](http://on-img.com/chart_image/5b4d6c5ae4b0ade3e27f9b49.png)
 - [UML书例子1](http://on-img.com/chart_image/5b445353e4b00b08ad14b830.png)
