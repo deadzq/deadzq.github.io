@@ -1,0 +1,127 @@
+<!DOCTYPE html><html><head><title>jQuery-4</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="jquery-4">jQuery-4</h1>
+
+<p><a href="http://www.cnblogs.com/ukzq/p/9005815.html" target="_blank">按照jQuery学习小结加强一下</a></p>
+
+<p><strong>jQuery遍历 - clearQueue() 方法</strong> <br>
+实例 <br>
+清空队列:</p>
+
+<iframe height="414" scrolling="no" title="jQuery data- clearqueue" src="//codepen.io/deadzq/embed/odpWQX/?height=414&amp;theme-id=dark&amp;default-tab=js,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/odpWQX/"&gt;jQuery data- clearqueue&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<p>clearQueue() 方法从序列中删除仍未运行的所有项目. <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">.clearQueue(queueName)
+</div></code></pre>
+
+<p>queueName : 可选。字符串值，包含序列的名称。默认是 fx, 标准的效果序列。 <br>
+<strong>详细说明</strong> <br>
+当调用.clearQueue()方法时,序列中未被执行的所有函数都会被从序列中删除.如果不使用参数,则.clearQueue() 从 fx (标准效果序列) 中删除剩余的函数. 在这种方式中, 它类似于 .stop(true) .不过,.stop() 方法只用于动画, 而.clearQueue()也可用于删除通过.queue()方法添加到通用jQuery序列的任何函数.</p>
+
+<iframe height="321" scrolling="no" title="wjpeex" src="//codepen.io/deadzq/embed/wjpeex/?height=321&amp;theme-id=dark&amp;default-tab=js,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/wjpeex/"&gt;wjpeex&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<p>dequeue() 方法为匹配元素执行序列中的下一个函数. <br>
+当调用<strong>.dequeue()</strong>时,会从序列中删除一个函数,然后执行它.该函数反过来会(直接或间接地)引发对<strong>.dequeue()</strong>的调用,这样序列才能继续下去.</p>
+
+<hr>
+
+<p><strong>jQuery遍历 - hasData() 方法</strong> <br>
+在元素上设置数据,然后查看hasData的结果:</p>
+
+<iframe height="226" scrolling="no" title="WJdEeV" src="//codepen.io/deadzq/embed/WJdEeV/?height=226&amp;theme-id=dark&amp;default-tab=js,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/WJdEeV/"&gt;WJdEeV&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<p>hasData() 方法检测元素是否拥有与之相关的任何jQuery数据. <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">jQuery.hasData(element)
+</div></code></pre>
+
+<p>element : 可选. 需要检查其数据的DOM元素.</p>
+
+<p><span>$</span>.hasData() 方法检测元素当前是否拥有通过使用jQuery.data()设置的任何值. 如果没有数据与元素相关(根本不存在数据对象或者数据对象为空), 则该方法返回false; 否则返回true .  <br>
+$.hasData(element) 的主要优势是,在不存在数据对象的情况下, 不会创建并将数据对象与元素进行关联. 相反地, jQuery.data(element)总是向调用者返回数据对象,如果之前数据对象不存在,则会创建它.</p>
+
+<hr>
+
+<p><strong>jQuery 遍历 - queue() 方法</strong> <br>
+2018年5月8日 21:35:16 <br>
+2018年5月9日 12:58:49 <br>
+queue()方法显示或操作在匹配元素上执行的函数队列. <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">.queue(queueName)
+</div></code></pre>
+
+<p>queueName : 可选, 字符串值, 包含序列的名称,默认是fx, 标准的效果序列. <br>
+显示队列的长度:</p>
+
+<iframe height="265" scrolling="no" title="jQuery queue方法" src="//codepen.io/deadzq/embed/gzoxGJ/?height=265&amp;theme-id=dark&amp;default-tab=js,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/gzoxGJ/"&gt;jQuery queue&amp;#26041;&amp;#27861;&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<p><strong>操作队列</strong> <br>
+queue() 方法操作在匹配元素上执行的函数队列. <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">.queue(queueName,newQueue)
+</div></code></pre>
+
+<p>queueName : 可选, 字符串值, 包含序列的名称,默认是fx,标准的效果序列. <br>
+<strong>详细说明</strong> <br>
+每个元素均可拥有一到多个jQuery添加的函数队列.在大多数应用程序中,只使用一个队列(名为fx) . 队列运行在元素上异步地调用动作序列, 而不会终止程序执行. 典型例子时调用元素上的多个动画方法,例如:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(<span class="hljs-string">"#foo"</span>).slideUp().fadeIn();
+</div></code></pre>
+
+<p>当这条语句执行时,元素会立即开始其滑动动画,但是淡入过渡被置于fx队列,只有当滑动过渡完成后才会被调用. <br>
+.queue() 方法允许我们直接对这个函数队列进行操作. 调用带有回调函数的.queue()方法特别有用; 它允许我们在队列末端放置一个新函数. <br>
+这个特性与动画方法提供回调函数类似,但是无需在动画执行时设置回调函数.</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(<span class="hljs-string">"#foo"</span>).slideUp();
+</div><div class="hljs-line">$(<span class="hljs-string">"#foo"</span>).queue(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    alert(<span class="hljs-string">"Animation complete."</span>);
+</div><div class="hljs-line">    $(<span class="hljs-keyword">this</span>).dequeue();
+</div><div class="hljs-line">});
+</div></code></pre>
+
+<p>等价于:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(<span class="hljs-string">"#foo"</span>).slideUp(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    alert(<span class="hljs-string">"Animation complete."</span>);
+</div><div class="hljs-line">});
+</div></code></pre>
+
+<p>请注意,当通过.queue()添加函数时,我们应当确保最终调用了.dequeue(), 这样下一个排队的函数才能执行. <br>
+例子1: 对自定义函数进行队列操作:</p>
+
+<iframe height="265" scrolling="no" title="queue" src="//codepen.io/deadzq/embed/yjvyRV/?height=265&amp;theme-id=dark&amp;default-tab=js,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/yjvyRV/"&gt;queue&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<p>例子2: 设置队列数组来删除队列:</p>
+
+<iframe height="265" scrolling="no" title="queue() 方法" src="//codepen.io/deadzq/embed/RyQVdr/?height=265&amp;theme-id=dark&amp;default-tab=js,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/RyQVdr/"&gt;queue() &amp;#26041;&amp;#27861;&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<hr>
+
+<p>jQuery数组用法</p>
+
+<iframe height="232" scrolling="no" title="jQuery toArray()" src="//codepen.io/deadzq/embed/odMdOL/?height=232&amp;theme-id=dark&amp;default-tab=js,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/odMdOL/"&gt;jQuery toArray()&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<hr></div></body></html>
