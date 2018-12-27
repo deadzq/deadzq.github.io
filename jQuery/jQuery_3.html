@@ -1,0 +1,188 @@
+<!DOCTYPE html><html><head><title>jQuery-3</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="jquery-3">jQuery-3</h1>
+
+<p><a href="https://www.w3cschool.cn/javascript/js-lib-jquery.html" target="_blank">https://www.w3cschool.cn/javascript/js-lib-jquery.html</a> <br>
+2018年5月5日 22:47:47</p>
+
+<p>2018年5月7日 17:46:31 <br>
+jQuery描述 <br>
+主要的jQuery函数时 $() 函数 (jQuery函数) , 如果您向该函数传递DOM对象,它会返回jQuery对象,带有向其添加的jQuery功能. <br>
+在JavaScript中,您可以分配一个函数以处理窗口加载事件:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myFunction</span>(<span class="hljs-params"></span>)</span>
+</div><div class="hljs-line"><span class="hljs-function"></span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> obj = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"h01"</span>);
+</div><div class="hljs-line">    obj.innerHTML = <span class="hljs-string">"Hello World"</span>;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">onload=myFunction;
+</div></code></pre>
+
+<p>等价的jQuery是不同的:</p>
+
+<iframe height="265" scrolling="no" title="jQuery Test1" src="//codepen.io/deadzq/embed/bMYgZX/?height=265&amp;theme-id=dark&amp;default-tab=js,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/bMYgZX/"&gt;jQuery Test1&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<p>上面代码的最后一行,HTML DOM文档对象被传递到jQuery : $(document) . <br>
+当您向jQuery传递DOM对象时,jQuery会返回以HTML DOM对象包装的jQuery对象. <br>
+jQuery函数会返回新的jQuery对象,其中的ready()是一个方法. <br>
+由于在JavaScript</p>
+
+<hr>
+
+<blockquote>
+  <p><strong>jQuery 杂项</strong></p>
+</blockquote>
+
+<p><strong>jQuery data()方法</strong></p>
+
+<iframe height="265" scrolling="no" title="jQuery data()" src="//codepen.io/deadzq/embed/OZOpeR/?height=265&amp;theme-id=dark&amp;default-tab=js,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/OZOpeR/"&gt;jQuery data()&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<p><strong>定义和用法</strong> <br>
+data() 方法向被选元素附加数据, 或者从被选元素获取数据. <br>
+提示: 如需移除数据, 请使用 removeData()方法.</p>
+
+<iframe height="265" scrolling="no" title="jQuery removeData()" src="//codepen.io/deadzq/embed/ELbvVb/?height=265&amp;theme-id=dark&amp;default-tab=js,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/ELbvVb/"&gt;jQuery removeData()&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<hr>
+
+<p><strong>从元素返回数据</strong> <br>
+从被选元素中返回附加的数据. <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(selector).data(name)
+</div></code></pre>
+
+<p>name参数可选.规定要取回的数据的名称.如果没有规定名称,则该方法将以对象的形式从元素中返回所有存储的数据.</p>
+
+<hr>
+
+<p><strong>向元素附加数据</strong> <br>
+向被选元素附加数据. <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(selector).data(name,value)
+</div></code></pre>
+
+<p>name: 必需.规定要设置的数据的名称.   value: 必需,规定要设置的数据的值.</p>
+
+<hr>
+
+<p><strong>使用对象向元素附加数据</strong> <br>
+使用带有名称/值对的对象向被选元素附加数据. <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(selector).data(object)
+</div></code></pre>
+
+<iframe height="297" scrolling="no" title="jQuery 使用对象向元素附加数据" src="//codepen.io/deadzq/embed/qYVPYd/?height=297&amp;theme-id=dark&amp;default-tab=js,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/qYVPYd/"&gt;jQuery &amp;#20351;&amp;#29992;&amp;#23545;&amp;#35937;&amp;#21521;&amp;#20803;&amp;#32032;&amp;#38468;&amp;#21152;&amp;#25968;&amp;#25454;&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<p>参数: object : 必需, 规定包含名称/值对的对象.</p>
+
+<hr>
+
+
+
+<h3 id="jquery属性">jQuery属性</h3>
+
+<p><strong>jquery</strong>属性返回的字符串包含jQuery的版本号</p>
+
+<iframe height="192" scrolling="no" title="jQuery 查看版本" src="//codepen.io/deadzq/embed/JvOOxr/?height=192&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/JvOOxr/"&gt;jQuery &amp;#26597;&amp;#30475;&amp;#29256;&amp;#26412;&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<hr>
+
+<p><strong>jQuery.fx.interval 属性</strong> <br>
+jQuery.fx.interval 属性用于改变以毫秒计的动画运行速率. <br>
+默认值是13毫秒. 该属性常用于修改动画运行的每秒帧数. 降低这个值能够使动画在更快的浏览器中运行得更流畅, 但这么做会影响性能和CPU. <br>
+注意: 由于jQuery使用一个全局的间隔时间,为了使该属性生效,动画应该不在运行或者首先停止所有动画. <br>
+注意:该属性在支持requestAnimationFrame属性的浏览器中无效,比如GoogleChrome11.</p>
+
+<iframe height="237" scrolling="no" title="jQuery.fx.interval 减少动画帧" src="//codepen.io/deadzq/embed/PeOEPv/?height=237&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/PeOEPv/"&gt;jQuery.fx.interval &amp;#20943;&amp;#23569;&amp;#21160;&amp;#30011;&amp;#24103;&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<p>上例不太好用,是jQuery版本问题</p>
+
+<hr>
+
+<p><strong>jQuery.fx.off 属性</strong> <br>
+该属性用于对所有动画进行全局禁用或启用. <br>
+默认值是false, 它允许动画正常运行. 当设置为true时, 将禁用所有动画方法,这样会把元素设置为最后的状态,不展示过程, 不显示动画效果. <br>
+提示: 如需简化,可使用 $.fx.off 来代替jQuery.fx.off <br>
+true: 规定禁用动画. <br>
+false: 默认. 规定应该启用动画.</p>
+
+<iframe height="265" scrolling="no" title="jQuery.fx.off 动画效果开关" src="//codepen.io/deadzq/embed/JvOOxr/?height=265&amp;theme-id=dark&amp;default-tab=html,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/JvOOxr/"&gt;jQuery.fx.off &amp;#21160;&amp;#30011;&amp;#25928;&amp;#26524;&amp;#24320;&amp;#20851;&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<hr>
+
+<p><strong>jQuery.support 属性</strong> <br>
+该属性包含表示不同浏览器特性或漏洞的属性集. <br>
+该属性主要用于jQuery的内部使用. <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">jQuery.support.propvalue  <span class="hljs-comment">//或是$.support.propvalue</span>
+</div></code></pre>
+
+<p>参数propvalue: 必需,规定要测试的功能,这些测试包括: <br>
+必需。规定要测试的功能。这些测试包括： <br>
+ajax / boxModel / changeBubbles / checkClone / checkOn / cors / cssFloat / hrefNormalized /  htmlSerialize / leadingWhitespace / <br>
+noCloneChecked / noCloneEvent / opacity /  optDisabled / optSelected / scriptEval() / style / submitBubbles /  tbody /</p>
+
+<iframe height="157" scrolling="no" title=".support 属性" src="//codepen.io/deadzq/embed/jxaYgL/?height=157&amp;theme-id=dark&amp;default-tab=js,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/jxaYgL/"&gt;$.support &amp;#23646;&amp;#24615;&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<hr>
+
+<p><strong>jQuery length 属性</strong> <br>
+length属性包含jQuery对象中元素的数目. <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(selector).length
+</div></code></pre>
+
+<iframe height="172" scrolling="no" title="jQuery length属性" src="//codepen.io/deadzq/embed/vjWdxL/?height=172&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/vjWdxL/"&gt;jQuery length&amp;#23646;&amp;#24615;&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<hr>
+
+<p><strong>jQuery.cssNumber 属性</strong> <br>
+$.cssNumber 指包含所有可以不使用单位的CSS属性的对象. <br>
+提示: 用于.css() , 来确定是否需要附加px到无单位的值. <br>
+默认情况下,这个对象包含以下属性: <br>
+zIndex <br>
+fontWeight <br>
+opacity <br>
+zoom <br>
+lineHeight <br>
+widows (jQuery 1.6开始添加) <br>
+orphans (jQuery 1.6开始添加) <br>
+fillOpacity (jQuery 1.6.2开始添加) <br>
+columnCount (jQuery 1.9开始添加) <br>
+order (jQuery 1.10.2开始添加) <br>
+flexGrow (jQuery 1.11.1开始添加) <br>
+flexShrink (jQuery 1.11.1开始添加</p>
+
+<p>如果要组织的.css()方法自动添加px单位到特定的CSS属性,可以添加一个额外的属性到jQuery.cssNumber对象.</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">jQuery.cssNumber.someCssProp = <span class="hljs-literal">true</span>;
+</div></code></pre>
+
+<p><a href="https://www.jquery123.com/" target="_blank">jQuery中文网</a> <br>
+其中在jQuery中文网也有栏目是插件 2018年5月7日 23:51:10 zzz</p>
+
+<p><a href="http://www.runoob.com/jquery/jquery-plugin-validate.html" target="_blank">插件开始</a> <br>
+2018年5月7日 23:06:23</p></div></body></html>
