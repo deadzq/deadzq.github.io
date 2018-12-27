@@ -45,7 +45,7 @@
 
 
 ##### 项目构建UML练习
-
+- [微信登录](http://assets.processon.com/chart_image/5c1e3ac3e4b0b71ee505f5b8.png)
 - [会员购卡](http://on-img.com/chart_image/5bb74ec4e4b0534c9bf4f914.png)
 - [订单系统](http://on-img.com/chart_image/5b52e6e6e4b0edb750e3f1f4.png)
 - [IP查询机](http://on-img.com/chart_image/5b4d6c5ae4b0ade3e27f9b49.png)
