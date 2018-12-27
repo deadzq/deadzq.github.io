@@ -1,4 +1,4 @@
-### 欢迎来到我的Java图解图示博客~ 
+### 欢迎来到我的Java图解图示博客~ [其它网址导航](/tools/tools.html),[我的博客园](http://www.cnblogs.com/ukzq/)
 
 <br>
 
@@ -6,7 +6,7 @@
 
 ##### 前端小册子
 
-- [jquery_0](/jQuery/jQuery.html),[jquery_2](/jQuery/jQuery_2.html),[jquery_3](/jQuery/jQuery_3.html),[jquery_4](/jQuery/jQuery_4.html),[jquery_5](/jQuery/jQuery_5.html)
+- [jquery_0](/jQuery/jQuery.html),[jquery_1](/jQuery/jQuery_2.html),[jquery_2](/jQuery/jQuery_3.html),[jquery_3](/jQuery/jQuery_4.html),[jquery_4](/jQuery/jQuery_5.html)
 
 
 ##### 题解
