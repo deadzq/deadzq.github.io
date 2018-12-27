@@ -1,0 +1,818 @@
+<!DOCTYPE html><html><head><title>jQuery</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="jquery">jQuery</h1>
+
+<blockquote>
+  <p>导读</p>
+</blockquote>
+
+<p><strong>jQuery是一个JavaScript库</strong></p>
+
+<ul><li><p>jQuery极大简化了JavaScript编程.</p></li>
+<li><p>jQuery很容易学习.</p></li>
+</ul>
+
+<p>jQuery库包含以下功能:</p>
+
+<ul><li><p>HTML 元素选取</p></li>
+<li><p>HTML 元素操作</p></li>
+<li><p>CSS 操作</p></li>
+<li><p>HTML 事件函数</p></li>
+<li><p>JavaScript 特效和动画</p></li>
+<li><p>HTML DOM 遍历和修改</p></li>
+<li><p>AJAX</p></li>
+<li><p>Utilities</p></li>
+</ul>
+
+<p>jQuery是否适用于所有浏览器? <br>
+jQuery 团体知道JS在不同浏览器中存在着大量的兼容性问题，目前jQuery兼容于所有主流浏览器, 包括Internet Explorer 6!</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/wybmc7tv/1/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+
+[jQuery官方下载](http://jquery.com/download/)
+[下载或CDN](http://www.runoob.com/jquery/jquery-install.html)
+Production version - 用于实际的网站中，已被精简和压缩。
+Development version - 用于测试和开发（未压缩，是可读的代码）
+
+jQuery版本支持
+在使用jQuery的时候你应该要注意的是 jQuery 2版本以上是不支持 IE6，7，8 浏览器的。那么如果使用的是 IE6，7，8 浏览器的话，你就得选择使用jQuery1.9版本的，或者，你也可以通过条件注释在使用 IE6，7，8 浏览器的时候只允许包含 jQuery 1.9.
+注释代码如下：    
+
+
+
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-html hljs xml"><div class="hljs-line"><span class="hljs-comment">&lt;!--[if lt IE 9]&gt; </span>
+</div><div class="hljs-line"><span class="hljs-comment"></span>
+</div><div class="hljs-line"><span class="hljs-comment">    &lt;script src="jquery-1.9.0.js"&gt;&lt;/script&gt; </span>
+</div><div class="hljs-line"><span class="hljs-comment"></span>
+</div><div class="hljs-line"><span class="hljs-comment">&lt;![endif]--&gt;</span> 
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">&lt;!--[if gte IE 9]&gt;&lt;!--&gt;</span> 
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"jquery-2.0.0.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span> 
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">&lt;!--&lt;![endif]--&gt;</span>
+</div></code></pre>
+
+
+—
+
+&gt; **jQuery语法**
+
+通过jQuery,可以选取(查询,query)HTML元素,并对它们执行操作 (actions) .
+
+基本语法 :  **$(selector).action()**
+- 美元符号定义**jQuery**
+- 选择符(selector) “查询” 和 “查找” HTML元素
+- jQuery的action()执行对元素的操作
+
+实例:
+
+
+
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs mel"><div class="hljs-line">$(this).<span class="hljs-keyword">hide</span>()        隐藏当前元素(如事件绑定的<span class="hljs-keyword">button</span>)
+</div><div class="hljs-line">$(<span class="hljs-string">"p"</span>).<span class="hljs-keyword">hide</span>()         隐藏所有p段落
+</div><div class="hljs-line">$(<span class="hljs-string">"p .test"</span>).<span class="hljs-keyword">hide</span>()   隐藏所有p段落中class=<span class="hljs-string">"test"</span>的段落
+</div><div class="hljs-line">$(<span class="hljs-string">"#test"</span>).<span class="hljs-keyword">hide</span>()     隐藏所有id=<span class="hljs-string">"test"</span> 的元素
+</div></code></pre>
+
+实例展示:
+<iframe width="100%" height="300" src="//jsfiddle.net/29j9eshx/3/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+—
+
+**文档就绪事件**
+您也许已经注意到在我们的实例中的所有jQuery函数位于一个document ready函数中.
+等同于JavaScript中的body onload事件.
+
+
+
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-comment">//开始写jQuery代码...</span>
+</div><div class="hljs-line">}); 
+</div></code></pre>
+
+这是为了防止文档在完全加载(就绪)之前运行jQuery代码,即在DOM加载完成后才可以对DOM进行操作.
+**如果在文档没有完全加载之前就运行函数,操作可能失败**. 下面是两个具体的例子:
+- **试图隐藏一个不存在的元素**
+- **获得未完全加载的图像的大小**
+
+提示: 简洁写法(与以上写法效果相同?):
+
+
+
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-comment">//开始写jQuery代码...</span>
+</div><div class="hljs-line">});
+</div></code></pre>
+
+以上两种方式你可以选择你喜欢的方式实现文档就绪后执行jQuery方法.
+
+—
+
+&gt; **jQuery选择器**
+
+**jQuery选择器**允许你对HTML元素组或单个元素进行操作.
+jQuery选择器基于元素的<mark>**id**, **类**, **类型**, **属性**, **属性值**, 等</mark>“查找”(或选择)HTML元素.它基于已经存在的CSS选择器, 除此之外,它还有一些自定义的选择器.
+jQuery中所有选择器都以**美元符号开头**: **$()** 
+
+**元素选择器**
+jQuery元素选择器基于元素名选取元素.
+在页面中选取所有&lt;p&gt;元素:
+
+
+
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(<span class="hljs-string">"p"</span>)
+</div></code></pre>
+
+实例: 用户点击按钮后, 所有&lt;p&gt;元素都被隐藏:
+<iframe width="100%" height="300" src="//jsfiddle.net/2ntbyajr/1/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+—
+
+**<mark>#</mark>id选择器**
+jQuery #id 选择器通过HTML元素的**id属性**选取指定的元素.
+页面中元素的id应该是唯一的, 所以您要在页面中选取唯一的元素需要通过 **#id** 选择器.
+通过 id 选取元素语法如下:
+
+
+
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(<span class="hljs-string">"#test"</span>)
+</div></code></pre>
+
+实例: 当用户点击按钮后, 有 id=”test” 属性的元素将被隐藏:
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/L9uL015m/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+—
+
+**.class选择器**
+jQuery类选择器可以通过指定的 class 查找元素.
+语法如下:
+
+
+
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(<span class="hljs-string">".test"</span>)
+</div></code></pre>
+
+实例: 用户点击按钮后所有带有 class=”test” 属性的元素都隐藏:
+<iframe width="100%" height="300" src="//jsfiddle.net/z8t2krb4/11/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+—
+
+**更多实例**
+$(“*”)   选取所有元素
+<iframe width="100%" height="300" src="//jsfiddle.net/z8t2krb4/17/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+—
+
+$(this)  选取当前HTML元素
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/de0bvj84/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+—
+
+$(“p.intro”)   选取class为intro的&lt;p&gt;元素
+<iframe width="100%" height="300" src="//jsfiddle.net/sr86ggse/2/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+—
+
+$(“p:first”)  选取第一个&lt;p&gt;元素  注意p后面是冒号 **:** 
+<iframe height="501" scrolling="no" title="jQuery_2" src="//codepen.io/deadzq/embed/NBYdWG/?height=501&amp;theme-id=0&amp;default-tab=js,result&amp;embed-version=2" allowfullscreen="true" style="width: 100%;">See the Pen &lt;a href="https://codepen.io/deadzq/pen/NBYdWG/"&gt;jQuery_2&lt;/a&gt; by ukyozq (&lt;a href="https://codepen.io/deadzq"&gt;@deadzq&lt;/a&gt;) on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&amp;#10;</iframe>
+
+<hr>
+
+<p>$(“ul li:first”)   选取第一个&lt;ul&gt;元素的第一个&lt;li&gt;元素  注意li:first 这之间不能有空格</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/hnkL8x2b/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p>$(“ul li:first-child”)   选取每个&lt;ul&gt;元素的第一个&lt;li&gt;元素</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/15Lqdvet/1/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p>$(“[href]”)   选取带有href属性的元素</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/ka9s2cfn/1/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p>$(“a[target=’_blank’]”)   选取所有target属性值为”_blank”的&lt;a&gt;元素 新页中打开</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/ev8up443/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p>$(“a[target!=’_blank’]”)   选取所有target属性值不等于”_blank”的&lt;a&gt;元素</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/csu1yccy/1/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p>$(“.button”)    选取所有 <strong>type=”button”</strong> 的&lt;input&gt;元素和&lt;button&gt;元素</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/7wob06ho/embedded/js,html,result/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p>$(“tr:even”)   选取偶数位置的&lt;tr&gt;元素</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/84buxjvk/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p>$(“tr:odd”)    选取奇数位置的&lt;tr&gt;元素</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/zabnk511/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>独立文件中使用 jQuery 函数</strong> <br>
+如果您的网站包含许多页面,并且您希望您的jQuery函数易于维护,那么请把您的jQuery函数放到独立的 <strong>.js</strong> 文件中.</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-html hljs xml"><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"</span>&gt;</span><span class="undefined"></span>
+</div><div class="hljs-line"><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"my_jquery_functions.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span> 
+</div></code></pre>
+
+<blockquote>
+  <p><strong>jQuery事件</strong></p>
+</blockquote>
+
+<p>页面对不同访问者的响应叫做事件. <br>
+实例:</p>
+
+<ul><li><p>在元素上移动鼠标.</p></li>
+<li><p>选取单选按钮.</p></li>
+<li><p>点击元素.</p></li>
+</ul>
+
+<p>在事件中经常使用术语”触发”(或’激发’) 例如: “当您按下按键时触发 keypress 事件”. <br>
+常见<strong>DOM事件</strong>:</p>
+
+<h2 id="鼠标事件-键盘事件-表单事件-文档窗口事件-click-keypress-submit-load-dblclick-keydown-change-resize-mouseenter-keyup-focus-scroll-mouseleave-blur-unload"><table><tbody><tr style="font-weight:bold">  <td align="center">鼠标事件</td>  <td align="center">键盘事件</td>  <td align="center">表单事件</td>  <td align="center">文档/窗口事件</td></tr><tr>  <td align="center">click</td>  <td align="center">keypress</td>  <td align="center">submit</td>  <td align="center">load</td></tr><tr>  <td align="center">dblclick</td>  <td align="center">keydown</td>  <td align="center">change</td>  <td align="center">resize</td></tr><tr>  <td align="center">mouseenter</td>  <td align="center">keyup</td>  <td align="center">focus</td>  <td align="center">scroll</td></tr><tr>  <td align="center">mouseleave</td>  <td align="center"></td>  <td align="center">blur</td>  <td align="center">unload</td></tr></tbody></table></h2>
+
+<p><strong>jQuery事件方法语法</strong> <br>
+在jQuery中,大多数DOM事件都有一个等效的jQuery方法. <br>
+页面中指定一个点击事件:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(<span class="hljs-string">"p"</span>).click();
+</div></code></pre>
+
+<p>下一步是定义什么时间触发事件. 您可以通过一个事件函数实现:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(<span class="hljs-string">"p"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-comment">//动作触发后执行的代码!!</span>
+</div><div class="hljs-line">});
+</div></code></pre>
+
+<hr>
+
+<p><strong>常用的jQuery事件方法</strong> <br>
+<strong>$(document).ready()</strong> <br>
+该方法允许我们在文档完全加载完成后执行函数. 该事件方法在 jQuery语法 章节中已经提到过. <br>
+<strong>click()</strong> <br>
+click()方法是当按钮点击事件被触发时会调用一个函数. <br>
+该函数在用户点击HTML元素时执行. <br>
+下面的代码,当点击事件在某个&lt;p&gt;元素上触发时,隐藏当前的&lt;p&gt;元素:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(<span class="hljs-string">"p"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    $(<span class="hljs-keyword">this</span>).hide();
+</div><div class="hljs-line">});
+</div></code></pre>
+
+<hr>
+
+<p><strong>dblclick()</strong> <br>
+当双击元素时,会发生 dblclick事件. <br>
+dblclick()方法触发dblclick事件,或规定当发生dblclick事件时运行的函数:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/067cdt3w/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>mouseenter()</strong> <br>
+当鼠标指针穿过元素时,会发生 mouseenter 事件. <br>
+mouseenter() 方法触发 mouseenter事件, 或规定当发生 mouseenter 事件时运行的函数:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/b3phdd3r/1/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>mouseleave()</strong> <br>
+当鼠标指针离开元素时,会发生 mouseleave 事件. <br>
+mouseleave() 方法触发 mouseleave事件, 或规定当发生 mouseleave 事件时运行的函数:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/9mrouzte/2/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>mousedown()</strong> <br>
+当鼠标指针移动到元素上方,并按下鼠标按键时,会发生mousedown事件. <br>
+mousedown() 方法触发 mousedown事件, 或规定当发生 mousedown 事件时运行的函数:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/9mrouzte/2/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>mouseup()</strong> <br>
+当在元素上松开鼠标按钮时,会发生 mouseup 事件. <br>
+mouseup() 方法触发 mouseup 事件, 或规定当发生 mouseup 事件时运行的函数:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/oet4noag/1/embedded/js,html,result/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>hover()</strong> <br>
+hover()方法用于模拟光标悬停事件. <br>
+当鼠标移动到元素上时,会触发指定的第一个函数(mouseenter);当鼠标移出这个元素时,会触发指定的第二个函数(mouseleave).</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/73g9dszu/2/embedded/js,html,result/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>focus()</strong> <br>
+当元素获得焦点时,发生focus事件. <br>
+当通过鼠标点击选中元素或通过tab键定位到元素时,该元素就会获得焦点. <br>
+focus()方法 触发 focus 事件, 或规定当发生focus事件时运行的函数:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/gpLzee6k/1/embedded/js,html,result/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>blur()</strong> <br>
+当元素失去焦点时,发生blur事件. <br>
+blur()方法触发blur事件,或规定当发生blur事件时运行的函数:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/pq7z34mg/embedded/js,html,result/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>比较keypress, keydown 与 keyup</strong></p>
+
+<ul><li><p>keydown : 在键盘上按下某键时发生, 一直按着则会不断触发(opera浏览器除外), 它返回的是键盘代码;</p></li>
+<li><p>keypress : 在键盘上按下一个按键, 并产生一个字符时发生, 返回ASCII码. 注意: shift, alt, ctrl 等键按下并不会产生字符, 所以监听无效, 换句话说, 只有按下能在屏幕上输出字符的按键时 keypress 事件才会触发. 若一直按着某按键则会不断触发.</p></li>
+<li><p>keyup : 用户松开某一个按键时触发, 与keydown相对, 返回键盘代码.</p></li>
+</ul>
+
+<hr>
+
+<blockquote>
+  <p><strong>jQuery效果</strong></p>
+</blockquote>
+
+
+
+<h3 id="隐藏和显示">隐藏和显示</h3>
+
+<p>在jQuery中可以使用hide()和show()方法来隐藏和显示HTML元素, 以及使用toggle()方法能够切换hide()和show()方法.</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/Lsk25jdm/3/embedded/js,html,result/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p>语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(selector).hide(speed,callback);
+</div><div class="hljs-line">$(selector).show(speed,callback);
+</div></code></pre>
+
+<p>可选的speed参数规定<strong>隐藏/显示</strong>的速度,可以取以下的值: “slow” , “fast” 或毫秒. <br>
+可选的callback参数是<strong>隐藏/显示</strong>完成后执行的函数名称. <br>
+带有speed参数的hide()实例:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/drkkeb3p/1/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>jQuery toggle()</strong> <br>
+通过jQuery,您可以使用toggle()方法来切换hide()和show()方法. <br>
+显示被隐藏的元素,并隐藏已显示的元素.</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/L70r7n42/embedded/js,html,result/" allowfullscreen="allowfullscreen"></iframe>
+
+<p>语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(selector).toggle(speed,callback);
+</div></code></pre>
+
+<p>可选的 speed 参数规定隐藏/显示的速度，可以取以下值：”slow”、”fast” 或毫秒。 <br>
+可选的 callback 参数是隐藏或显示完成后所执行的函数名称</p>
+
+<hr>
+
+
+
+<h3 id="淡入淡出">淡入淡出</h3>
+
+<p>通过jQuery,您可以实现元素的淡入淡出效果. <br>
+<strong>jQuery Fading方法</strong> <br>
+jQuery拥有下面四中fade方法: //fade: 淡入淡出 褪色,逐渐消失</p>
+
+<ul><li><p>fadeIn()</p></li>
+<li><p>fadeOut()</p></li>
+<li><p>fadeToggle()</p></li>
+<li><p>fadeTo()</p></li>
+</ul>
+
+<hr>
+
+<p><strong>jQuery fadeIn() 方法</strong> <br>
+jQuery fadeIn() 用于淡入已隐藏的元素. <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(selector).fadeIn(speed,callback);
+</div></code></pre>
+
+<p>可选的 speed 参数规定效果的时长。它可以取以下值：”slow”、”fast” 或毫秒。. <br>
+可选的 callback 参数是 fading 完成后所执行的函数名称。</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/k7dsvcey/2/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>jQuery fadeOut() 方法</strong> <br>
+jQuery fadeOut() 方法用于淡出可见元素. <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(selector).fadeOut(speed,callback);
+</div></code></pre>
+
+<p>可选的 speed 参数规定效果的时长。它可以取以下值：”slow”、”fast” 或毫秒。 <br>
+可选的 callback 参数是 fading 完成后所执行的函数名称。</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/8dvw6ys9/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>jQuery fadeToggle() 方法</strong> <br>
+jQuery fadeToggle() 方法可以在 fadeIn() 与 fadeOut() 方法之间进行切换. <br>
+如果元素已淡出, 则fadeToggle()会向元素添加淡入效果. <br>
+如果元素已淡入, 则fadeToggle()会向元素添加淡出效果. <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(selector).fadeToggle(speed,callback);
+</div></code></pre>
+
+<p>可选的 speed 参数规定效果的时长。它可以取以下值：”slow”、”fast” 或毫秒。 <br>
+可选的 callback 参数是 fading 完成后所执行的函数名称。</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/1rhec6v6/embedded/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>jQuery fadeTo() 方法</strong> <br>
+jQuery fadeTo() 方法允许渐变为给定的不透明度 (值介于0与1之间). <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(selector).fadeTo(speed,opacity,callback);
+</div></code></pre>
+
+<p>必需的 speed 参数规定效果的时长。它可以取以下值：”slow”、”fast” 或毫秒。 <br>
+fadeTo() 方法中必需的 opacity 参数将淡入淡出效果设置为给定的不透明度（值介于 0 与 1 之间）。 <br>
+可选的 callback 参数是该函数完成后所执行的函数名称。</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/baq2p67q/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+
+
+<h3 id="滑动">滑动</h3>
+
+<p><strong>jQuery滑动方法</strong> <br>
+通过jQuery,您可以在元素上创建滑动效果. <br>
+jQuery拥有以下滑动方法:</p>
+
+<ul><li><p>slideDown()</p></li>
+<li><p>slideUp()</p></li>
+<li><p>slideToggle()</p></li>
+</ul>
+
+<hr>
+
+<p><strong>jQuery slideDown() 方法</strong> <br>
+jQuery slideDown() 方法用于向下滑动元素. <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(selector).slideDown(speed,callback);
+</div></code></pre>
+
+<p>可选的 speed 参数规定效果的时长。它可以取以下值：”slow”、”fast” 或毫秒。 <br>
+可选的 callback 参数是滑动完成后所执行的函数名称。</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/qz94tged/embedded/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>jQuery slideUp() 方法</strong> <br>
+jQuery slideUp() 方法用于向上滑动元素. <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(selector).slideUp(speed,callback);
+</div></code></pre>
+
+<p>可选的 speed 参数规定效果的时长。它可以取以下值：”slow”、”fast” 或毫秒。 <br>
+可选的 callback 参数是滑动完成后所执行的函数名称。</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/v6yn7tzm/embedded/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>jQuery slideToggle() 方法</strong> <br>
+jQuery slideToggle() 方法可以在 slideDown() 与 slideUp() 方法之间进行切换. <br>
+如果元素向下滑动, 则 slideToggle() 可向上滑动它们. <br>
+如果元素向上滑动, 则 slideToggle() 可向下滑动它们.</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(selector).slideToggle(speed,callback);
+</div></code></pre>
+
+<p>可选的 speed 参数规定效果的时长。它可以取以下值：”slow”、”fast” 或毫秒。 <br>
+可选的 callback 参数是滑动完成后所执行的函数名称。</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/7p6t1fm8/embedded/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+
+
+<h3 id="动画">动画</h3>
+
+<p><strong>jQuery animate() 方法</strong>允许您创建自定义的动画. <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(selector).animate({params},speed,callback);
+</div></code></pre>
+
+<p>必需的params参数定义形成动画的CSS属性. <br>
+可选的speed参数规定效果的时长. 它可以取以下值: “slow”, “fast” 或毫秒. <br>
+可选的callback参数是动画完成后所执行的函数名称. <br>
+下面的例子演示animate()方法的简单应用, 它把 &lt;div&gt;元素往右边移动了250像素:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/kk0dbxt1/embedded/" allowfullscreen="allowfullscreen"></iframe>
+
+<p>默认情况下,所有HTML元素都有一个静态位置,且无法移动. <br>
+如需对位置进行操作,要记得首先把元素的CSS position属性设置为relative, fixed或absolute !</p>
+
+<hr>
+
+<p><strong>jQuery animate()</strong> 操作多个属性 <br>
+请注意,生成动画的过程中可同时使用多个属性:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/w2dr219t/embedded/" allowfullscreen="allowfullscreen"></iframe>
+
+<p>可以用animate() 方法来操作所有CSS属性吗? <br>
+是的,几乎可以!不过,需要记住一件重要的事情:当使用 animate() 时，必须使用 Camel 标记法书写所有的属性名，比如，必须使用 paddingLeft 而不是 padding-left，使用 marginRight 而不是 margin-right，等等。 <br>
+同时，色彩动画并不包含在核心 jQuery 库中。 <br>
+如果需要生成颜色动画，您需要从 jquery.com 下载 颜色动画 插件。</p>
+
+<hr>
+
+<p><strong>jQuery animate() 使用相对值</strong> <br>
+也可以定义相对值(该值相对于元素的当前值). 需要在值的前面加上+=或-= :</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/qrvqnpLr/1/embedded/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>jQuery animate() 使用预定义的值</strong> <br>
+您甚至可以把属性的动画值设置为”show”, “hide” 或 “toggle”:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/u4yax671/embedded/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>jQuery animate() 使用队列功能</strong> <br>
+默认地, jQuery提供针对动画的队列功能. <br>
+这意味着如果您在彼此之后编写多个animate()调用, jQuery会创建包含这些方法调用的”内部”队列. 然后逐一运行这些animate调用.</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/t72mx4cq/embedded/" allowfullscreen="allowfullscreen"></iframe>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/nxv2yyu2/embedded/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+
+
+<h3 id="停止动画">停止动画</h3>
+
+<p><strong>jQuery stop() 方法</strong> <br>
+jQuery stop() 方法用于停止动画或效果, 在它们完成之前. <br>
+stop() 方法适用于所有 jQuery 效果函数, 包括滑动, 淡入淡出和自定义动画. <br>
+语法:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(selector).stop(stopAll,goToEnd);
+</div></code></pre>
+
+<p>可选的 stopAll 参数规定是否应该清除动画队列。默认是 false，即仅停止活动的动画，允许任何排入队列的动画向后执行。 <br>
+可选的 goToEnd 参数规定是否立即完成当前动画。默认是 false。 <br>
+因此，默认地，stop() 会清除在被选元素上指定的当前动画。 <br>
+下面的例子演示 stop() 方法，不带参数：</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/dbs88jxa/embedded/" allowfullscreen="allowfullscreen"></iframe>
+
+<p>带参数:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/9L4b8q7x/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+
+
+<h3 id="jquery-callback-方法">jQuery Callback 方法</h3>
+
+<p>Callback函数在当前动画100%完成之后执行. <br>
+<strong>jQuery动画的问题</strong> <br>
+许多jQuery函数涉及动画.这些函数会将speed或duration作为可选参数. <br>
+例子: $(“p”).hide(“slow”) <br>
+speed或duration参数可以设置许多不同的值,比如”slow”, “fast”, “normal” 或毫秒. <br>
+以下实例在隐藏效果完全实现后回调函数:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/0mwet826/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<p>没有回调函数的话就像之前的hide()普通方法是一样的.</p>
+
+<hr>
+
+
+
+<h3 id="jquery-链-chaining">jQuery 链 Chaining</h3>
+
+<p>通过jQuery,可以把动作/方法链接到一起. <br>
+Chaining允许我们在一条语句中运行多个jQuery方法 (在相同的元素上). <br>
+<strong>jQuery方法链接</strong> <br>
+直到现在,我们都是一次写一条jQuery语句(一条接着另一条). <br>
+不过,有一种名为链接(chaining)的技术,允许我们在相同的元素上运行多条jQuery命令,一条接着另一条. <br>
+提示:这样的话,浏览器就不必多次查找相同的元素. <br>
+如需链接一个动作,您只需简单地把该动作追加到之前的动作上. <br>
+下面的例子把css(), slideUp()和slideDown()链接在一起. “p1”元素首先会变为红色,然后向上滑动,再然后向下滑动:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/0v246s1y/embedded/js,html,result/" allowfullscreen="allowfullscreen"></iframe>
+
+<p>如果需要,我们可以添加多个方法调用. <br>
+提示:当进行链接时,代码行会变得很长. 不过, jQuery语法不是很严格; 您可以按照希望的格式来写,包含换行和缩进.</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">$(<span class="hljs-string">"#p1"</span>).css(<span class="hljs-string">"color"</span>,<span class="hljs-string">"red"</span>)
+</div><div class="hljs-line">  .slideUp(<span class="hljs-number">2000</span>)
+</div><div class="hljs-line">  .slideDown(<span class="hljs-number">2000</span>);
+</div></code></pre>
+
+<p>jQuery会抛掉多余的空格,并当成一行长代码来执行上面的代码行.</p>
+
+<hr>
+
+<blockquote>
+  <p><strong>jQuery HTML</strong></p>
+</blockquote>
+
+<p>jQuery获取内容和属性 <br>
+jQuery拥有可操作HTML元素和属性的强大方法.</p>
+
+
+
+<h3 id="jquery-dom-操作-获取内容和属性">jQuery DOM 操作 获取内容和属性</h3>
+
+<p>jQuery中非常重要的部分,就是操作DOM的能力. <br>
+jQuery提供一系列与DOM相关的方法,这使访问和操作元素和属性变得很容易. <br>
+DOM = Document Object Model (文档对象模型) <br>
+DOM定义访问HTML和XML文档的标准: <br>
+“W3C文档对象模型独立于平台和语言的界面,允许程序和脚本动态访问和更新文档的内容,结构以及样式.”</p>
+
+<hr>
+
+<p><strong>获得内容 text() , html() 以及 val()</strong> <br>
+三个简单实用的用于DOM操作的jQuery方法:</p>
+
+<ul><li><p>text() 设置或返回所选元素的文本内容</p></li>
+<li><p>html() 设置或返回所选元素的内容 (包括HTML标记)</p></li>
+<li><p>val() 设置或返回表单字段的值</p></li>
+</ul>
+
+<p>下面的例子演示如何通过jQuery text() 和 html() 方法来获得内容:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/gez73baa/embedded/js,html,result/" allowfullscreen="allowfullscreen"></iframe>
+
+<p>下面例子演示如何通过jQuery val() 方法获得输入字段的值:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/5bvrmb4y/embedded/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>获取属性 attr()</strong> <br>
+jQuery attr() 方法用于获取属性值. <br>
+下面的例子演示如何获取链接中 href 属性的值:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/t809xh78/embedded/js,html,result/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+
+
+<h3 id="jquery-设置内容和属性">jQuery 设置内容和属性</h3>
+
+<p><strong>设置内容 text(), html() 以及val()</strong>  <br>
+我们将使用前一章中的三个相同的方法来设置内容:</p>
+
+<ul><li><p>text() 设置或返回所选元素的文本内容</p></li>
+<li><p>html() 设置或返回所选元素的内容 (包括HTML标记)</p></li>
+<li><p>val() 设置或返回表单字段的值</p></li>
+</ul>
+
+<p>下面的例子演示如何通过text(), html(), 以及val() 方法来设置内容:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/j5q5pj5L/embedded/js,html,result/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>text() , html() 以及 val() 的回调函数</strong> <br>
+上面的三个jQuery方法: text(), html() 以及val(), 同样拥有回调函数. 回调函数有两个参数: 被选元素列表中当前元素的下标, 以及原始(旧的)值. 然后以函数新值返回您希望使用的字符串. <br>
+下面的例子演示带有回调函数的 text() 和 html() :</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/sxt9dwq2/embedded/js,html,result/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>设置属性 attr()</strong> <br>
+jQuery attr() 方法也用于设置/改变属性值. <br>
+下面的例子演示如何改变(设置)链接中href属性的值:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/9ahrubL0/embedded/js,html,result/" allowfullscreen="allowfullscreen"></iframe>
+
+<p>attr()方法也允许您同时设置多个属性. <br>
+下面的例子演示如何同时设置href和title属性:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/a1z5eqhz/embedded/js,html,result/dark/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+<p><strong>attr()的回调函数</strong> <br>
+jQuery方法attr(), 也提供回调函数. 回调函数有两个参数: 被选元素列表中当前元素的下标, 以及原始(旧的)值. 然后以函数新值返回您希望使用的字符串. <br>
+下面的例子演示带有回调函数的attr()方法:</p>
+
+<iframe width="100%" height="300" src="//jsfiddle.net/deadzq/5xr3vcmq/embedded/js,html,result/" allowfullscreen="allowfullscreen"></iframe>
+
+<hr>
+
+
+
+<h3 id="添加元素-httpwwwrunoobcomjqueryjquery-dom-addhtml">添加元素  <a href="http://www.runoob.com/jquery/jquery-dom-add.html" target="_blank">http://www.runoob.com/jquery/jquery-dom-add.html</a></h3></div></body></html>
