@@ -1,0 +1,52 @@
+<!DOCTYPE html><html><head><title>Oracle触发器的使用</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="oracle触发器的使用">Oracle触发器的使用</h1>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-sql hljs"><div class="hljs-line"><span class="hljs-comment">--建立商品表序列</span>
+</div><div class="hljs-line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">SEQUENCE</span> seq_info <span class="hljs-keyword">MINVALUE</span> <span class="hljs-number">1001</span> <span class="hljs-keyword">NOMAXVALUE</span> 
+</div><div class="hljs-line"><span class="hljs-keyword">START</span> <span class="hljs-keyword">WITH</span> <span class="hljs-number">1001</span> <span class="hljs-keyword">INCREMENT</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span> <span class="hljs-keyword">NOCYCLE</span> NOCACHE;
+</div></code></pre>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-sql hljs"><div class="hljs-line"><span class="hljs-comment">--建立商品表</span>
+</div><div class="hljs-line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> product_info (
+</div><div class="hljs-line">       product_id varchar2(<span class="hljs-number">32</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span> primary <span class="hljs-keyword">key</span>,
+</div><div class="hljs-line">       product_name varchar2(<span class="hljs-number">64</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,
+</div><div class="hljs-line">       product_price <span class="hljs-built_in">decimal</span>(<span class="hljs-number">8</span>,<span class="hljs-number">2</span>)  <span class="hljs-keyword">default</span> <span class="hljs-number">0</span>  <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span> <span class="hljs-keyword">check</span>(product_price &gt;=<span class="hljs-number">0</span>),
+</div><div class="hljs-line">       product_stock <span class="hljs-built_in">number</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,
+</div><div class="hljs-line">       product_description varchar2(<span class="hljs-number">64</span>) <span class="hljs-keyword">default</span> <span class="hljs-string">''</span>,
+</div><div class="hljs-line">       product_icon varchar2(<span class="hljs-number">512</span>) <span class="hljs-keyword">default</span> <span class="hljs-string">''</span>,
+</div><div class="hljs-line">       category_type <span class="hljs-built_in">int</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,
+</div><div class="hljs-line">       create_time <span class="hljs-keyword">timestamp</span>  <span class="hljs-keyword">default</span> <span class="hljs-keyword">sysdate</span>,
+</div><div class="hljs-line">       update_time <span class="hljs-keyword">timestamp</span>  <span class="hljs-keyword">default</span> <span class="hljs-keyword">sysdate</span>
+</div><div class="hljs-line">)
+</div></code></pre>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-sql hljs"><div class="hljs-line"><span class="hljs-comment">--SELECT *</span>
+</div><div class="hljs-line"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> product_info
+</div></code></pre>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-sql hljs"><div class="hljs-line"><span class="hljs-comment">--DROP</span>
+</div><div class="hljs-line"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> product_info
+</div></code></pre>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-sql hljs"><div class="hljs-line"><span class="hljs-comment">--建立商品表ID自增触发器</span>
+</div><div class="hljs-line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">OR</span> <span class="hljs-keyword">REPLACE</span> <span class="hljs-keyword">TRIGGER</span> product_info_trigger <span class="hljs-keyword">BEFORE</span> <span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">ON</span> product_info 
+</div><div class="hljs-line"><span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> <span class="hljs-keyword">ROW</span> <span class="hljs-keyword">WHEN</span>(NEW.product_id <span class="hljs-keyword">IS</span> <span class="hljs-literal">NULL</span>) 
+</div><div class="hljs-line"><span class="hljs-keyword">BEGIN</span>
+</div><div class="hljs-line">  <span class="hljs-keyword">SELECT</span> seq_info.NEXTVAL <span class="hljs-keyword">INTO</span>:NEW.product_id <span class="hljs-keyword">FROM</span> dual;
+</div><div class="hljs-line"><span class="hljs-keyword">END</span>;
+</div></code></pre></div></body></html>
