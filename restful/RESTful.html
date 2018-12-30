@@ -1,0 +1,209 @@
+<!DOCTYPE html><html><head><title>RESTful 架构详解</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="restful-架构详解">RESTful 架构详解</h1>
+
+<p><strong>什么是REST</strong> <br>
+REST全称是Representational State Transfer, 中文意思是表述(通常译为表征)性状态转移. 它首次出现在2000年Roy Fielding的博士论文中,Roy Fielding是HTTP规范的主要编写者之一.他在论文中提到:”我这篇文字的写作目的,就是想在符合架构原理的前提下,理解和评估以网络为基础的应用软件的架构设计,得到一个功能强,性能好,适宜通信的架构.REST指的是一组架构约束条件和原则.”如果一个架构符合REST的约束条件和原则,我们就称它为RESTful架构.</p>
+
+<p>REST本身并没有创造新的技术,组件或服务,而隐藏在RESTful背后的理念就是使用Web的现有特征和能力,更好地使用现有Web标准中的一些准则和约束. 虽然REST本身受Web技术的影响很深,但是理论上REST架构风格并不是绑定在HTTP上,只不过目前HTTP是唯一与REST相关的实例. 所以我们这里描述的REST也是通过HTTP实现的REST.</p>
+
+<blockquote>
+  <p>阮一峰的RESTful API最佳实践</p>
+</blockquote>
+
+<p>RESTful是目前最流程的API设计规范,用于Web数据接口的设计. <br>
+它的大原则容易把握,但是细节不容易做对.本文总结RESTful的设计细节,介绍如何设计出易于理解和使用的API.</p>
+
+<blockquote>
+  <p>URL设计</p>
+</blockquote>
+
+<p><strong>动词+宾语</strong> <br>
+RESTful的核心思想就是, 客户端发出的数据操作指令都是”动词+宾语”的结构, 比如, GET / articles 这个命令, GET 是动词 /articles 是宾语. <br>
+动词通常就是五种HTTP方法,对应CRUD操作. <br>
+动词通常就是五种HTTP方法,对应CRUD操作:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-xml hljs"><div class="hljs-line">GET : 读取(Read)
+</div><div class="hljs-line">POST : 新建(Create)
+</div><div class="hljs-line">PUT : 更新(Update)
+</div><div class="hljs-line">PATCH :更新(Update),通常是部分更新
+</div><div class="hljs-line">DELETE : 删除(Delete)
+</div></code></pre>
+
+<p>根据HTTP规范,动词一律大写.</p>
+
+<hr>
+
+<p><strong>动词的覆盖</strong> <br>
+有些客户端只能使用GET和POST这两种方法. 服务器必须接收POST模拟其它三个方法(PUT, PATCH, DELETE). 这时,客户端发出的HTTP请求,要加上 X-HTTP-Method-Override 属性, 告诉服务器应该使用哪一个动词, 覆盖POST方法.</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-xml hljs"><div class="hljs-line">POST /api/Person/4 HTTP/1.1
+</div><div class="hljs-line">X-HTTP-Method-Override: PUT
+</div></code></pre>
+
+<p>上面代码中, X-HTTP-Method-Override指定本次请求方法是PUT,而不是POST.</p>
+
+<hr>
+
+<p><strong>宾语必须是名词</strong> <br>
+宾语就是API的URL,是HTTP动词作用的对象. 它应该是名词,不能是动词. 比如, /articles这个URL就是正确的, 而下面的URL不是名词,所以都是错误的.</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-xml hljs"><div class="hljs-line">/getAllCars
+</div><div class="hljs-line">/createNewCar
+</div><div class="hljs-line">/deleteAllRedCars
+</div></code></pre>
+
+<hr>
+
+<p><strong>复数URL</strong> <br>
+既然URL是名词,那么应该使用复数,还是单数? <br>
+这没有统一的规定,但是常见的操作是读取一个集合,比如 GET /articles (读取所有文章), 这里明显应该是复数. <br>
+为了统一起见,建议都使用复数URL,比如GET /articles/2 要好于GET /article/2 </p>
+
+<hr>
+
+<p><strong>避免多级URL</strong> <br>
+常见的情况是,资源需要多级分类,因此很容易写出多级的URL, 比如获取某个作者的某一类文章.</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-xml hljs"><div class="hljs-line">GET /authors/12/categories/2
+</div></code></pre>
+
+<p>这种URL不利于扩展,语义也不明确, 往往要想一会儿,才能明白含义. <br>
+更好的做法是,除了第一级,其它级别都用查询字符串表达.</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-xml hljs"><div class="hljs-line">GET /authors/12?categories=2
+</div></code></pre>
+
+<p>下面是另一个例子, 查询已发布的文章, 你可以会涉及成下面的URL.</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-xml hljs"><div class="hljs-line">GET /articles/published
+</div></code></pre>
+
+<p>查询字符串的写法明显更好.</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-xml hljs"><div class="hljs-line">GET /articles?published=true
+</div></code></pre>
+
+<hr>
+
+<blockquote>
+  <p>状态码</p>
+</blockquote>
+
+<p><strong>状态码必须精确</strong> <br>
+客户端的每一次请求,服务器都必须给出回应. 回应包括HTTP状态码和数据两部分. <br>
+HTTP状态码就是一个三位数, 分成五个类别.</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-xml hljs"><div class="hljs-line">1xx : 相关信息
+</div><div class="hljs-line">2xx : 操作成功
+</div><div class="hljs-line">3xx : 重定向
+</div><div class="hljs-line">4xx : 客户端错误
+</div><div class="hljs-line">5xx : 服务器错误
+</div></code></pre>
+
+<p>这五大类总共包含<a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank">100多种</a>状态码,覆盖了绝大部分可能遇到的情况,每一种状态码都有标准的(或者约定的)解释, 客户端只需查看状态码, 就可以判断出发生了什么情况, 所以服务器应该返回尽可能精确的状态码. <br>
+API不需要1xx状态码,下面介绍其它四类状态码的精确含义.</p>
+
+<hr>
+
+<p><strong>2xx状态码</strong></p>
+
+<p>200状态码表示操作成功,但是不同的方法可以返回更精确的状态码.</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-xml hljs"><div class="hljs-line">GET : 200 OK
+</div><div class="hljs-line">POST : 201 Created
+</div><div class="hljs-line">PUT : 200 OK
+</div><div class="hljs-line">PATCH : 200 OK
+</div><div class="hljs-line">DELETE : 204 No Content
+</div></code></pre>
+
+<p>上面代码中,POST返回201状态码,表示生成了新的资源; DELETE返回204状态码,表示资源已经不存在. <br>
+此外,202 Accepted状态码表示服务器已经收到请求,但还未进行处理,会在未来再处理, 通常用于异步操作,下面是一个例子.</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-xml hljs"><div class="hljs-line">HTTP/1.1 202 Accepted
+</div><div class="hljs-line">{
+</div><div class="hljs-line">  "task":{
+</div><div class="hljs-line">    "href": "api/company/job-management/jobs/2130040",
+</div><div class="hljs-line">    "id": "2130040"
+</div><div class="hljs-line">  }
+</div><div class="hljs-line">}
+</div></code></pre>
+
+<hr>
+
+<p><strong>3xx状态码</strong> <br>
+API用不到301状态码(永久重定向)和302状态码(暂时重定向,307也是这个含义),因为它们可以由应用级别返回,浏览器会直接跳转,API级别可以不考虑这两种情况. <br>
+API用到的3xx状态码,主要是303 See Other, 表示参考另一个URL.它与302和307的含义一样,也是”暂时重定向”,区别在于302和307用于GET请求,而303用于POST,PUT和DELETE请求. 收到303以后,浏览器不会自动跳转,而会让用户自己决定下一步怎么办. 下面是一个例子.</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-xml hljs"><div class="hljs-line">HTTP/1.1 303 See Other
+</div><div class="hljs-line">Location: /api/orders/12345
+</div></code></pre>
+
+<hr>
+
+<p><strong>4xx状态码</strong> <br>
+4xx状态码表示客户端错误,主要有下面几种. <br>
+400 Bad Request : 服务器不理解客户端的请求,未做任何处理. <br>
+401 Unauthorized : 用户未提供身份验证凭据, 或者没有通过身份验证. <br>
+403 Forbidden : 用户通过了身份验证,但是不具有访问资源所需的权限. <br>
+404 Not Found : 所请求的资源不存在, 或不可用. <br>
+405 Method Not Allowed : 用户已经通过身份验证,但是所用的HTTP方法不在他的权限之内. <br>
+410 Gone : 所请求的资源已从这个地址转移, 不再可用. <br>
+415 Unsupported Media Type : 客户端要求的返回格式不支持. 比如, API只能返回JSON格式,但是客户端要求返回XML格式. <br>
+422 Unprocessable Entity : 客户端上传的附件无法处理, 导致请求失败. <br>
+429 Too Many Requests : 客户端的请求次数超过限额.</p>
+
+<hr>
+
+<p><strong>5xx状态码</strong> <br>
+5xx状态码表示服务端错误. 一般来说,API不会向用户透露服务器的详细信息,所以只要两个状态码就够了. <br>
+500 Internal Server Error : 客户端请求有效, 服务器处理时发生了意外. <br>
+503 Service Unavailable : 服务器无法处理请求,一般用于网站维护状态.</p>
+
+<hr>
+
+<blockquote>
+  <p>服务器回应</p>
+</blockquote>
+
+<p><strong>不要返回纯文本</strong> <br>
+API返回的数据格式,不应该是纯文本,而应该是一个JSON对象,因为这样才能返回标准的结构化数据. 所以, 服务器回应的HTTP头的 Content-Type 属性要设为 application/json . <br>
+客户端请求时,也要明确告诉服务器,可以接收JSON格式,即请求的HTTP头的ACCEPT属性也要设成application/json. 下面是一个例子.</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-xml hljs"><div class="hljs-line">GET /orders/2 HTTP/1.1
+</div><div class="hljs-line">Accept: application/json
+</div></code></pre>
+
+<hr>
+
+<p><strong>发生错误时,不要返回200状态码</strong> <br>
+有一种不恰当的做法是,即使发生错误,也返回200状态码, <br>
+<a href="http://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html" target="_blank">http://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html</a></p></div></body></html>
