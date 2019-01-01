@@ -16,6 +16,10 @@
 
 - [RESTful](/restful/RESTful.html)
 
+##### Redis
+
+- [Redis](/redis/Redis.html)
+
 ##### CW(codewars.com)
 
 - JAVA
