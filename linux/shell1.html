@@ -1,0 +1,82 @@
+<!DOCTYPE html><html><head><title>Linux使用Shell脚本控制Tomcat/SpringBoot(war,jar)启动关闭</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="linux使用shell脚本控制tomcatspringbootwarjar启动关闭">Linux使用Shell脚本控制Tomcat/SpringBoot(war,jar)启动关闭</h1>
+
+<p><strong>#!/bin/bash为必加项</strong> <br>
+保存为tom.sh 执行sh tom.sh启动</p>
+
+<p>TOMCAT启动与关闭快捷shell脚本</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-bash hljs"><div class="hljs-line"> <span class="hljs-comment">#!/bin/bash</span>
+</div><div class="hljs-line"> <span class="hljs-comment">#To quickly start tomcat or shutdown.</span>
+</div><div class="hljs-line"> <span class="hljs-comment">#by ukyozq </span>
+</div><div class="hljs-line"> <span class="hljs-comment">#lastChangeTime:2018-1-21 9:12</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-comment">#tomcat bin path short as tbp.</span>
+</div><div class="hljs-line"> tbp=/usr/<span class="hljs-built_in">local</span>/tomcat/apache-tomcat-9.0.11/bin
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"> <span class="hljs-comment">#the command $1 match 1 to start, match 0 to stop.</span>
+</div><div class="hljs-line"> cmd=<span class="hljs-variable">$1</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"> <span class="hljs-comment">#Logic shell code follow.</span>
+</div><div class="hljs-line"> <span class="hljs-keyword">if</span> [[ -z <span class="hljs-variable">$cmd</span> ]];<span class="hljs-keyword">then</span>
+</div><div class="hljs-line">     <span class="hljs-built_in">echo</span> <span class="hljs-string">"err!usage{sh <span class="hljs-variable">$0</span> 1|0 to start or shutdown.}"</span>
+</div><div class="hljs-line"> <span class="hljs-keyword">elif</span> [[ <span class="hljs-variable">$cmd</span> <span class="hljs-_">-eq</span> 1 ]];<span class="hljs-keyword">then</span>
+</div><div class="hljs-line">     sh <span class="hljs-variable">$tbp</span>/startup.sh
+</div><div class="hljs-line"> <span class="hljs-keyword">elif</span> [[ <span class="hljs-variable">$cmd</span> <span class="hljs-_">-eq</span> 0 ]];<span class="hljs-keyword">then</span>
+</div><div class="hljs-line">     sh <span class="hljs-variable">$tbp</span>/shutdown.sh
+</div><div class="hljs-line"> <span class="hljs-keyword">else</span>
+</div><div class="hljs-line">     <span class="hljs-built_in">echo</span> <span class="hljs-string">"err!just 1 or 0 behind <span class="hljs-variable">$0</span>,like(sh <span class="hljs-variable">$0</span> 1)"</span>
+</div><div class="hljs-line"> <span class="hljs-keyword">fi</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"> <span class="hljs-comment">#$? to test the .sh stat.</span>
+</div><div class="hljs-line"> <span class="hljs-keyword">if</span> [[ $? <span class="hljs-_">-eq</span> 0 ]];<span class="hljs-keyword">then</span>
+</div><div class="hljs-line">     <span class="hljs-built_in">echo</span> <span class="hljs-_">-e</span> <span class="hljs-string">"\033[32mtom.sh run succeed. \033[0m"</span>
+</div><div class="hljs-line"> <span class="hljs-keyword">else</span>
+</div><div class="hljs-line">     <span class="hljs-built_in">echo</span> <span class="hljs-_">-e</span> <span class="hljs-string">"\033[32mtom.sh run failed,check the code involved.\033[0m"</span>
+</div><div class="hljs-line"> <span class="hljs-keyword">fi</span>
+</div></code></pre>
+
+<p>部署SpringBoot(jar,war)项目的shell脚本(持久运行) <br>
+保存为startSpring.sh 执行sh startSpring.sh启动</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-bash hljs"><div class="hljs-line"><span class="hljs-meta">#!/bin/sh</span>
+</div><div class="hljs-line">RESOURCE_NAME=newindex-0.0.1-SNAPSHOT.war
+</div><div class="hljs-line">cmd=<span class="hljs-variable">$1</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">tpid=`ps -ef|grep <span class="hljs-variable">$RESOURCE_NAME</span>|grep -v grep|grep -v <span class="hljs-built_in">kill</span>|awk <span class="hljs-string">'{print $2}'</span>`
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">if</span> [[ -z <span class="hljs-variable">$cmd</span> ]];<span class="hljs-keyword">then</span>
+</div><div class="hljs-line">     <span class="hljs-built_in">echo</span> <span class="hljs-string">'err,usage{ sh $0 1|0 to start or stop jar}'</span>
+</div><div class="hljs-line"><span class="hljs-keyword">elif</span> [[ <span class="hljs-variable">$cmd</span> <span class="hljs-_">-eq</span> 1 ]];<span class="hljs-keyword">then</span>
+</div><div class="hljs-line">     nohup java -jar /usr/<span class="hljs-built_in">local</span>/springboot2.0_jar/<span class="hljs-variable">$RESOURCE_NAME</span> &gt; log.file 2&gt;&amp;1 &amp;
+</div><div class="hljs-line">     <span class="hljs-built_in">echo</span> $! &gt; tpid
+</div><div class="hljs-line">      <span class="hljs-built_in">echo</span> <span class="hljs-string">'Start Success!~~~'</span>
+</div><div class="hljs-line"><span class="hljs-keyword">elif</span> [[ <span class="hljs-variable">$cmd</span> <span class="hljs-_">-eq</span> 0 ]];<span class="hljs-keyword">then</span>
+</div><div class="hljs-line">      <span class="hljs-built_in">echo</span> <span class="hljs-string">'Stop Process...'</span>
+</div><div class="hljs-line">      <span class="hljs-built_in">kill</span> -15 <span class="hljs-variable">$tpid</span>
+</div><div class="hljs-line">      sleep 5
+</div><div class="hljs-line">      <span class="hljs-built_in">echo</span> <span class="hljs-string">'Kill Process!'</span>
+</div><div class="hljs-line">      <span class="hljs-built_in">kill</span> -9 <span class="hljs-variable">$tpid</span>
+</div><div class="hljs-line">      <span class="hljs-built_in">echo</span> <span class="hljs-string">'Stop Success!'</span>
+</div><div class="hljs-line"><span class="hljs-keyword">else</span> 
+</div><div class="hljs-line">      <span class="hljs-built_in">echo</span> <span class="hljs-string">'err!just 1 or 0 behind $0, like (sh $0 1)'</span>
+</div><div class="hljs-line"><span class="hljs-keyword">fi</span>   
+</div></code></pre>
+
+<p>今天看到linux服务器中没有快捷启动以及重启或关闭的快捷方式,随总结拿出分享.</p>
+
+<p><a href="https://blog.csdn.net/qq_38974634/article/details/81710382" target="_blank">https://blog.csdn.net/qq_38974634/article/details/81710382</a> <br>
+持久运行正确方式</p>
+
+<p><a href="https://blog.csdn.net/qq_41186788/article/details/80462916" target="_blank">https://blog.csdn.net/qq_41186788/article/details/80462916</a> <br>
+Linux中MySQL数据库导入表</p></div></body></html>

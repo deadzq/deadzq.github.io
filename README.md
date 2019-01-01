@@ -20,6 +20,10 @@
 
 - [Redis](/redis/Redis.html)
 
+##### Linux
+
+- [shell启动war包/tomcat](/linux/shell1.html)
+
 ##### CW(codewars.com)
 
 - JAVA
