@@ -24,8 +24,8 @@
 
 - [shell启动war包/tomcat](/linux/shell1.html)
 
-##### CW(codewars.com) 
-<br>
+##### CW(codewars.com) <br>
+
 ![codewarsGOGOGO!](https://www.codewars.com/users/deadzq/badges/large)
 
 - JAVA
