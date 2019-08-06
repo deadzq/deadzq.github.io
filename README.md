@@ -4,6 +4,10 @@
 
 ---
 
+##### Java
+
+- [单点登录](/architect/sso.html)
+
 ##### 区块链
 
 - [java开发区块链小demo](/blockChain/java-blockchain1.html)
