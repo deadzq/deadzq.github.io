@@ -6,7 +6,8 @@
 
 ##### Java
 
-- [单点登录](/architect/sso.html)
+- [单点登录Apache-cas](/architect/sso.html)
+- [单点登录OAuth2](/architect/oauth2_sso.html)
 
 ##### 区块链
 
