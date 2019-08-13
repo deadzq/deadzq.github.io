@@ -1,0 +1,119 @@
+<!DOCTYPE html><html><head><title>ECharts图表三维数据的展示</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<h1 id="echarts图表三维数据的展示">ECharts图表三维数据的展示</h1>
+
+<blockquote>
+  <p>怎样去使用一个ECharts demo</p>
+</blockquote>
+
+<pre class="prettyprint hljs-dark"><code class="language-JavaScript hljs"><div class="hljs-line">app.title = <span class="hljs-string">'多 Y 轴示例'</span>;
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> colors = [<span class="hljs-string">'#5793f3'</span>, <span class="hljs-string">'#d14a61'</span>, <span class="hljs-string">'#675bba'</span>]; <span class="hljs-comment">//可改动 颜色&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">option = {
+</div><div class="hljs-line">    <span class="hljs-attr">color</span>: colors, <span class="hljs-comment">//可改动 颜色 , color为一个新的option关键字&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+</div><div class="hljs-line">    title:{
+</div><div class="hljs-line">      <span class="hljs-attr">text</span>:<span class="hljs-string">'标题'</span>  <span class="hljs-comment">//可改动 标题&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+</div><div class="hljs-line">    },
+</div><div class="hljs-line">    <span class="hljs-attr">tooltip</span>: {
+</div><div class="hljs-line">        <span class="hljs-attr">trigger</span>: <span class="hljs-string">'axis'</span>,
+</div><div class="hljs-line">        <span class="hljs-attr">axisPointer</span>: {
+</div><div class="hljs-line">            <span class="hljs-attr">type</span>: <span class="hljs-string">'cross'</span>
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">    },
+</div><div class="hljs-line">    <span class="hljs-attr">grid</span>: {
+</div><div class="hljs-line">        <span class="hljs-attr">right</span>: <span class="hljs-string">'20%'</span>    <span class="hljs-comment">//可改动 位置&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+</div><div class="hljs-line">    },
+</div><div class="hljs-line">    <span class="hljs-attr">toolbox</span>: {
+</div><div class="hljs-line">        <span class="hljs-attr">feature</span>: {
+</div><div class="hljs-line">            <span class="hljs-attr">dataView</span>: {<span class="hljs-attr">show</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">readOnly</span>: <span class="hljs-literal">false</span>},
+</div><div class="hljs-line">            <span class="hljs-attr">restore</span>: {<span class="hljs-attr">show</span>: <span class="hljs-literal">true</span>},
+</div><div class="hljs-line">            <span class="hljs-attr">saveAsImage</span>: {<span class="hljs-attr">show</span>: <span class="hljs-literal">true</span>} <span class="hljs-comment">//可改动 下载&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">    },
+</div><div class="hljs-line">    <span class="hljs-attr">legend</span>: {
+</div><div class="hljs-line">        <span class="hljs-attr">data</span>:[<span class="hljs-string">'蒸发量'</span>,<span class="hljs-string">'降水量'</span>,<span class="hljs-string">'平均温度'</span>]  <span class="hljs-comment">//可改动 栏目&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+</div><div class="hljs-line">    },
+</div><div class="hljs-line">    <span class="hljs-attr">xAxis</span>: [
+</div><div class="hljs-line">        {
+</div><div class="hljs-line">            <span class="hljs-attr">type</span>: <span class="hljs-string">'category'</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">axisTick</span>: {
+</div><div class="hljs-line">                <span class="hljs-attr">alignWithLabel</span>: <span class="hljs-literal">true</span>
+</div><div class="hljs-line">            },
+</div><div class="hljs-line">            <span class="hljs-attr">data</span>: [<span class="hljs-string">'1月'</span>,<span class="hljs-string">'2月'</span>,<span class="hljs-string">'3月'</span>,<span class="hljs-string">'4月'</span>,<span class="hljs-string">'5月'</span>,<span class="hljs-string">'6月'</span>,<span class="hljs-string">'7月'</span>,<span class="hljs-string">'8月'</span>,<span class="hljs-string">'9月'</span>,<span class="hljs-string">'10月'</span>,<span class="hljs-string">'11月'</span>,<span class="hljs-string">'12月'</span>]  <span class="hljs-comment">//可改动 x轴数据(时间)&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">    ],
+</div><div class="hljs-line">    <span class="hljs-attr">yAxis</span>: [  <span class="hljs-comment">//可改动 y轴数据&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+</div><div class="hljs-line">        {
+</div><div class="hljs-line">            <span class="hljs-attr">type</span>: <span class="hljs-string">'value'</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">name</span>: <span class="hljs-string">'蒸发量'</span>,  
+</div><div class="hljs-line">            <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">max</span>: <span class="hljs-number">250</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">position</span>: <span class="hljs-string">'right'</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">axisLine</span>: {
+</div><div class="hljs-line">                <span class="hljs-attr">lineStyle</span>: {
+</div><div class="hljs-line">                    <span class="hljs-attr">color</span>: colors[<span class="hljs-number">0</span>]
+</div><div class="hljs-line">                }
+</div><div class="hljs-line">            },
+</div><div class="hljs-line">            <span class="hljs-attr">axisLabel</span>: {
+</div><div class="hljs-line">                <span class="hljs-attr">formatter</span>: <span class="hljs-string">'{value} ml'</span> <span class="hljs-comment">//可改动 单位&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+</div><div class="hljs-line">            }
+</div><div class="hljs-line">        },
+</div><div class="hljs-line">        {
+</div><div class="hljs-line">            <span class="hljs-attr">type</span>: <span class="hljs-string">'value'</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">name</span>: <span class="hljs-string">'降水量'</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">max</span>: <span class="hljs-number">250</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">position</span>: <span class="hljs-string">'right'</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">offset</span>: <span class="hljs-number">80</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">axisLine</span>: {
+</div><div class="hljs-line">                <span class="hljs-attr">lineStyle</span>: {
+</div><div class="hljs-line">                    <span class="hljs-attr">color</span>: colors[<span class="hljs-number">1</span>]
+</div><div class="hljs-line">                }
+</div><div class="hljs-line">            },
+</div><div class="hljs-line">            <span class="hljs-attr">axisLabel</span>: {
+</div><div class="hljs-line">                <span class="hljs-attr">formatter</span>: <span class="hljs-string">'{value} ml'</span>  <span class="hljs-comment">//可改动 单位&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+</div><div class="hljs-line">            }
+</div><div class="hljs-line">        },
+</div><div class="hljs-line">        {
+</div><div class="hljs-line">            <span class="hljs-attr">type</span>: <span class="hljs-string">'value'</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">name</span>: <span class="hljs-string">'温度'</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">max</span>: <span class="hljs-number">25</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">position</span>: <span class="hljs-string">'left'</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">axisLine</span>: {
+</div><div class="hljs-line">                <span class="hljs-attr">lineStyle</span>: {
+</div><div class="hljs-line">                    <span class="hljs-attr">color</span>: colors[<span class="hljs-number">2</span>]
+</div><div class="hljs-line">                }
+</div><div class="hljs-line">            },
+</div><div class="hljs-line">            <span class="hljs-attr">axisLabel</span>: {
+</div><div class="hljs-line">                <span class="hljs-attr">formatter</span>: <span class="hljs-string">'{value} °C'</span>  <span class="hljs-comment">//可改动 单位&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+</div><div class="hljs-line">            }
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">    ],
+</div><div class="hljs-line">    <span class="hljs-attr">series</span>: [   <span class="hljs-comment">//可改动 填充的数据&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+</div><div class="hljs-line">        {
+</div><div class="hljs-line">            <span class="hljs-attr">name</span>:<span class="hljs-string">'蒸发量'</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">type</span>:<span class="hljs-string">'bar'</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">data</span>:[<span class="hljs-number">2.0</span>, <span class="hljs-number">4.9</span>, <span class="hljs-number">7.0</span>, <span class="hljs-number">23.2</span>, <span class="hljs-number">25.6</span>, <span class="hljs-number">76.7</span>, <span class="hljs-number">135.6</span>, <span class="hljs-number">162.2</span>, <span class="hljs-number">32.6</span>, <span class="hljs-number">20.0</span>, <span class="hljs-number">6.4</span>, <span class="hljs-number">3.3</span>]
+</div><div class="hljs-line">        },
+</div><div class="hljs-line">        {
+</div><div class="hljs-line">            <span class="hljs-attr">name</span>:<span class="hljs-string">'降水量'</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">type</span>:<span class="hljs-string">'bar'</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">yAxisIndex</span>: <span class="hljs-number">1</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">data</span>:[<span class="hljs-number">2.6</span>, <span class="hljs-number">5.9</span>, <span class="hljs-number">9.0</span>, <span class="hljs-number">26.4</span>, <span class="hljs-number">28.7</span>, <span class="hljs-number">70.7</span>, <span class="hljs-number">175.6</span>, <span class="hljs-number">182.2</span>, <span class="hljs-number">48.7</span>, <span class="hljs-number">18.8</span>, <span class="hljs-number">6.0</span>, <span class="hljs-number">2.3</span>]
+</div><div class="hljs-line">        },
+</div><div class="hljs-line">        {
+</div><div class="hljs-line">            <span class="hljs-attr">name</span>:<span class="hljs-string">'平均温度'</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">type</span>:<span class="hljs-string">'line'</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">yAxisIndex</span>: <span class="hljs-number">2</span>,
+</div><div class="hljs-line">            <span class="hljs-attr">data</span>:[<span class="hljs-number">2.0</span>, <span class="hljs-number">2.2</span>, <span class="hljs-number">3.3</span>, <span class="hljs-number">4.5</span>, <span class="hljs-number">6.3</span>, <span class="hljs-number">10.2</span>, <span class="hljs-number">20.3</span>, <span class="hljs-number">23.4</span>, <span class="hljs-number">23.0</span>, <span class="hljs-number">16.5</span>, <span class="hljs-number">12.0</span>, <span class="hljs-number">6.2</span>]
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">    ]
+</div><div class="hljs-line">};
+</div></code></pre>
+
+<p><a href="https://www.echartsjs.com/examples/editor.html?c=multiple-y-axis" target="_blank">https://www.echartsjs.com/examples/editor.html?c=multiple-y-axis</a> <br>
+<a href="https://github.com/sixtreehall/EChartsFormatter" target="_blank">https://github.com/sixtreehall/EChartsFormatter</a>  根据EChartsFormatter插件可快速获取数据填充需求字段内容.</p></div></body></html>
