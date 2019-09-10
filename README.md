@@ -13,6 +13,10 @@
 - [单点登录Apache-cas](/architect/sso.html)
 - [单点登录OAuth2](/architect/oauth2_sso.html)
 
+##### Python
+
+- [Python入门记录lesson1](/python/py-lesson1.html)
+
 ##### ECharts
 
 - [echarts及插件的使用](/echarts/echarts1.html)
